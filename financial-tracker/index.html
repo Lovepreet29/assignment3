@@ -13,10 +13,10 @@
 			<fieldset>
 				<legend>Add Transaction</legend>
 				<div class="frm-group">
-					<input class="frm-control" type="text" name="description" size="30" placeholder="description" />
+					<input id="todo" class="frm-control" type="text" name="description" size="30" placeholder="description" />
 				</div>
 				<div class="frm-group">
-					<select class="frm-control" name="type">
+					<select id="type" class="frm-control" name="type">
 						<option value="">type</option>
 						<option value="debit">debit</option>
 						<option value="credit">credit</option>
@@ -24,7 +24,7 @@
 				</div>
 				<div class="frm-group">
 					<i class="edit fa fa-dollar"></i>
-					<input class="frm-control" type="number" name="currency" min="0" max="9999" step="0.01" size="4" placeholder="0.00" />
+					<input id="spend" class="frm-control" type="number" name="currency" min="0" max="9999" step="0.01" size="4" placeholder="0.00" />
 				</div>
 				<div class="frm-group">
 					<input class="frm-control" type="submit" value="add" />

@@ -32,6 +32,7 @@ function addToDoItem(htmlString){
   }
   function addListenerToImage(image){
     image.addEventListener("click", removeToDoItem);
+    image.src = removeIcon;
   }
   function removeToDoItem(e){
     let todos = datadisplayed.querySelectorAll("tr")

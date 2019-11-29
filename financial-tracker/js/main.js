@@ -40,7 +40,7 @@ function addToDoItem(htmlString){
     datadisplayed.removeChild(nodeToRemove);
     todos = datadisplayed.querySelectorAll("tr")
     todos.forEach((item, index) => {
-      console.log((item.querySelectorAll("img").dataset.index = index));
+      item.querySelectorAll("img").dataset.index = index;
     })
   }
 
@@ -67,11 +67,11 @@ function addToDoItem(htmlString){
       }
 
       if (theform.elements.type.value.trim() !== "") {
-        todoItem.category = theform.elements.type.value;
+        todoItem.type = theform.elements.type.value;
       }
   
       if (theform.elements.spend.value !== 0) {
-        todoItem.time = parseFloat(theform.elements.spend.value).toFixed(2);
+        todoItem.spend = parseFloat(theform.elements.spend.value).toFixed(2);
       }
       if(errorCount === 0){
         todoItem.valid = true;

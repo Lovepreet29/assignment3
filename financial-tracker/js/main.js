@@ -14,6 +14,7 @@ window.addEventListener("load", function(e){
       addToDoItem(htmlString);
     }
 })
+
 function addToDoItem(htmlString){
   const makeIndex = datadisplayed.children.length;
   let makeNodeFromText = document
@@ -32,51 +33,53 @@ function addToDoItem(htmlString){
   }
   function addListenerToImage(image){
     image.addEventListener("click", removeToDoItem);
-    image.src = removeIcon;
+    
   }
   function removeToDoItem(e){
-    let todos = datadisplayed.querySelectorAll("tr")
+    let TobeDone = datadisplayed.querySelectorAll("tr")
     const index = e.target.dataset.index;
-    const nodeToRemove = todos[index];
+    const nodeToRemove = TobeDone[index];
+    let result = confirm("Are you sure, You want to Delete this Data?")
     datadisplayed.removeChild(nodeToRemove);
-    todos = datadisplayed.querySelectorAll("tr")
-    todos.forEach((item, index) => {
+    TobeDone = datadisplayed.querySelectorAll("tr")
+    TobeDone.forEach((item, index) => {
       item.querySelectorAll("img").dataset.index = index;
     })
+    console.log(result)
   }
+  
 
-    function createToDoItem(newToDo){
-      const todoElement =
+    function createToDoItem(shownData){
+      const Element =
       `
       <table>
       <tr>
-        <td class = "what-todo">${newToDo.todo}</td>
-        <td class = "category">${newToDo.type}</td>
-        <td class = "spend">${newToDo.spend}</td>
+        <td class = "what-todo">${shownData.todo}</td>
+        <td class = "category">${shownData.type}</td>
+        <td class = "spend">${shownData.spend}</td>
         <td class="remove"> ${removeIcon} </td>
       </tr>
       </table>
       `;
-      return todoElement;
+      return Element;
     }
 
     function validateSelected(theform){
-      const todoItem = {};
+      const itemDone = {};
       let errorCount = 0;
       if(theform.elements.todo.value.trim() !== ""){
-        todoItem.todo = theform.elements.todo.value;
+        itemDone.todo = theform.elements.todo.value;
       }
 
       if (theform.elements.type.value.trim() !== "") {
-        todoItem.type = theform.elements.type.value;
+        itemDone.type = theform.elements.type.value;
       }
-  
       if (theform.elements.spend.value !== 0) {
-        todoItem.spend = parseFloat(theform.elements.spend.value).toFixed(2);
+        itemDone.spend = parseFloat(theform.elements.spend.value).toFixed(2);
       }
       if(errorCount === 0){
-        todoItem.valid = true;
-        return todoItem;
+        itemDone.valid = true;
+        return itemDone;
       }
     }
 })

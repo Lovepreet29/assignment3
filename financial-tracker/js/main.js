@@ -47,7 +47,6 @@ function addToDoItem(htmlString){
     })
     console.log(result)
   }
-  
 
     function createToDoItem(shownData){
       const Element =
@@ -67,6 +66,7 @@ function addToDoItem(htmlString){
     function validateSelected(theform){
       const itemDone = {};
       let errorCount = 0;
+      
       if(theform.elements.todo.value.trim() !== ""){
         itemDone.todo = theform.elements.todo.value;
       }
@@ -74,12 +74,14 @@ function addToDoItem(htmlString){
       if (theform.elements.type.value.trim() !== "") {
         itemDone.type = theform.elements.type.value;
       }
+
       if (theform.elements.spend.value !== 0) {
         itemDone.spend = parseFloat(theform.elements.spend.value).toFixed(2);
       }
+
       if(errorCount === 0){
         itemDone.valid = true;
         return itemDone;
       }
-    }
+    }    
 })
